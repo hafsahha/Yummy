@@ -124,11 +124,11 @@
             <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
               <div class="row gy-4">
                 <div class="col-lg-4 col-md-6">
-                  <input type="text" name="jenis_lapangan" class="form-control" id="jenis_lapangan" placeholder="Your Jenis Lapangan">
+                  <input type="text" name="jenisLapangan" class="form-control" id="jenisLapangan" placeholder="Your Jenis Lapangan">
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                  <input type="text" class="form-control" name="jenis_olahraga" id="jenis_olahraga" placeholder="Your jenis_olahraga">
+                  <input type="text" class="form-control" name="jenisOlahraga" id="jenisOlahraga" placeholder="Your jenis_olahraga">
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-4 col-md-6">
