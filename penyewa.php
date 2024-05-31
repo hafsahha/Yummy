@@ -1,6 +1,24 @@
 <?php
     include('function.php');
     $penyewa = readPenyewa();
+
+    if (isset($_POST['btn-add'])) {
+        // jalankan query tambah record baru
+        $isAddSucceed = addPenyewa($_POST, $_FILES);
+        if ($isAddSucceed > 0) {
+            // jika penambahan sukses, tampilkan alert
+            echo "
+            <script>
+                alert('Data Berhasil Ditambahkan');
+            </script>";
+        } else {
+            echo "
+            <script>
+                alert('Gagal menambahkan Data !');
+            </script>
+            ";
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -138,7 +156,7 @@
                     <option value="1">Iya</option>
                     <option value="0">Tidak</option>
                 </select>
-              <div class="text-center"><button type="submit">Tambah Penyewa</button></div>
+              <div class="text-center"><button type="submit" name="btn-add">Tambah Penyewa</button></div>
             </form>
           </div><!-- End Reservation Form -->
 

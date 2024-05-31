@@ -1,6 +1,24 @@
 <?php
     include('function.php');
     $pj = readPJ();
+
+    if (isset($_POST['btn-add'])) {
+        // jalankan query tambah record baru
+        $isAddSucceed = addPJ($_POST, $_FILES);
+        if ($isAddSucceed > 0) {
+            // jika penambahan sukses, tampilkan alert
+            echo "
+            <script>
+                alert('Data Berhasil Ditambahkan');
+            </script>";
+        } else {
+            echo "
+            <script>
+                alert('Gagal menambahkan Data !');
+            </script>
+            ";
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -131,7 +149,7 @@
                 <label for="no_hp" class="form-label">No Hp</label>
                 <input type="text" class="form-control" id="no_hp" name="no_hp" required>
                 </div>
-              <div class="text-center"><button type="submit">Tambah PJ</button></div>
+              <div class="text-center"><button type="submit" name="btn-add">Tambah PJ</button></div>
             </form>
           </div><!-- End Reservation Form -->
 
