@@ -124,22 +124,27 @@
             <form action="function.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
               <div class="row gy-4">
                 <div class="col-lg-4 col-md-6">
-                  <input type="text" name="jenisLapangan" class="form-control" id="jenisLapangan" required>
-                  <div class="validate"></div>
+                <label for="nama" class="form-label">Jenis lapangan</label>
+                <input type="text" name="jenisLapangan" class="form-control" id="jenisLapangan" required>
+                <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                    <label for="nama" class="form-label">Jenis Olahraga</label>
+                    <input type="text" class="form-control" name="jenisOlahraga" id="jenisOlahraga" required>
+                    <div class="validate"></div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                  <input type="text" class="form-control" name="jenisOlahraga" id="jenisOlahraga" required>
-                  <div class="validate"></div>
+                    <label for="nama" class="form-label">Fasilitas</label>
+                    <input type="text" class="form-control" name="fasilitas" id="fasilitas" required>
+                    <div class="validate"></div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                  <input type="text" class="form-control" name="fasilitas" id="fasilitas" required>
-                  <div class="validate"></div>
+                    <label for="nama" class="form-label">Harga</label>
+                    <input type="text" name="harga" class="form-control" id="harga" required>
+                    <div class="validate"></div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                  <input type="text" name="harga" class="form-control" id="harga" required>
-                  <div class="validate"></div>
-                </div>
-                <div class="col-lg-4 col-md-6">
+                    <label for="nama" class="form-label">PJ</label>
                   <input type="text" class="form-control" name="pj" id="pj" required>
                   <div class="validate"></div>
                 </div>
