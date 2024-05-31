@@ -250,19 +250,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
-    <?php
-    foreach ($transaksi as $trans) {
-    ?>
-        <span><?php echo $trans ['ID_penyewa']?></span>
-        <span><?php echo $trans ['ID_lapangan']?></span>
-        <span><?php echo $trans ['tanggal']?></span>
-        <span><?php echo $trans ['start']?></span>
-        <span><?php echo $trans ['finish']?></span>
-        <span><?php echo $trans ['metode']?></span>
-    <?php
-    }
-    ?>
+  
 </body>
 
 </html>

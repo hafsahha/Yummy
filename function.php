@@ -7,10 +7,10 @@
     
         $IDPenyewa = $data['ID_penyewa'];
         $IDLapangan = $data['ID_lapangan'];
-        $tanggal = $data['tanggal'];
-        $start = $data['start'];
-        $finish = $data['finish'];
-        $metode = $data['metode'];
+        $tanggal = $data['tanggal_transaksi'];
+        $start = $data['waktu_mulai'];
+        $finish = $data['waktu_selesai'];
+        $metode = $data['metode_pembayaran'];
         
     
     
@@ -24,7 +24,7 @@
         return $isSucceed;
     }
 
-    function readTransaksi($data){
+    function readTransaksi(){
         global $conn;
 
         $query = "SELECT transaksi.* FROM transaksi";
