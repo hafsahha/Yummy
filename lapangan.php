@@ -124,27 +124,27 @@
             <form action="function.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
               <div class="row gy-4">
                 <div class="col-lg-4 col-md-6">
-                  <input type="text" name="jenisLapangan" class="form-control" id="jenisLapangan" placeholder="Your Jenis Lapangan">
+                  <input type="text" name="jenisLapangan" class="form-control" id="jenisLapangan" required>
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                  <input type="text" class="form-control" name="jenisOlahraga" id="jenisOlahraga" placeholder="Your jenis_olahraga">
+                  <input type="text" class="form-control" name="jenisOlahraga" id="jenisOlahraga" required>
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                  <input type="text" class="form-control" name="fasilitas" id="fasilitas" placeholder="Your fasilitas">
+                  <input type="text" class="form-control" name="fasilitas" id="fasilitas" required>
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                  <input type="text" name="harga" class="form-control" id="harga" placeholder="harga">
+                  <input type="text" name="harga" class="form-control" id="harga" required>
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                  <input type="text" class="form-control" name="pj" id="pj" placeholder="pj" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                  <input type="text" class="form-control" name="pj" id="pj" required>
                   <div class="validate"></div>
                 </div>
               </div>
-              <div class="text-center"><button type="submit">Book a Table</button></div>
+              <div class="text-center"><button type="submit">Tambah Lapangan</button></div>
             </form>
           </div><!-- End Reservation Form -->
 
