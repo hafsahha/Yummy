@@ -3,6 +3,25 @@
     $transaksi = readTransaksi();
     $penyewa = readPenyewa();
     $lapangan = readlapangan();
+
+	if (isset($_POST['btn-add'])) {
+		// Jalankan query tambah record baru
+		$isAddSucceed = addTransaksi($_POST);
+		if ($isAddSucceed > 0) {
+			// Jika penambahan sukses, tampilkan alert
+			echo "
+			<script>
+				alert('Data Berhasil Ditambahkan');
+				document.location.href = 'index.php';
+			</script>";
+		} else {
+			echo "
+			<script>
+				alert('Gagal menambahkan Data !');
+				document.location.href = 'index.php';
+			</script>";
+		}
+	}
 ?>
 
 <!DOCTYPE html>
@@ -102,7 +121,7 @@
 
         <!-- ======= Form Tambah Transaksi Section ======= -->
         <section id="book-a-table" class="book-a-table">
-            <div class="container" data-aos="fade-up">
+          <div class="container">
 
                 <div class="section-header">
                     <h2>Tambah Transaksi</h2>
@@ -110,55 +129,58 @@
                 </div>
 
                 <div class="row g-0">
-                    <div class="col-lg-4 reservation-img" style="background-image: url(assets/img/reservation.jpg);" data-aos="zoom-out" data-aos-delay="200"></div>
+                    <div class="col-lg-4 reservation-img" style="background-image: url(assets/img/reservation.jpg);"></div>
                     <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
-                        <form action="" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
-                            <div class="row gy-4">
-                                <div class="col-lg-6 col-md-6">
-                                    <label for="ID_penyewa" class="form-label">Nama Peyewa</label>
-                                    <select class="form-select" aria-label="Category" id="ID_penyewa" name="ID_penyewa" required>
-                                        <option value="" selected disabled hidden>Pilih</option>
-                                        <?php
-                                            foreach($transaksi as $trans){
-                                                echo '<option value="'.$trans['id_penyewa'].'">'.
-                                                $penyewa['nama']
-                                                .'</option>';
-                                            }
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <label for="ID_lapangan" class="form-label">Jenis Lapangan</label>
-                                    <select class="form-select" aria-label="Category" id="ID_lapangan" name="ID_lapangan" required>
-                                        <option value="" selected disabled hidden>Pilih</option>
-                                        <?php
-                                            foreach($transaksi as $trans){
-                                                echo '<option value="'.$trans['id_lapangan'].'">'.
-                                                $lapangan['jenis_lapangan']
-                                                .'</option>';
-                                            }
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <input type="date" name="tanggal_transaksi" class="form-control" id="tanggal_transaksi" placeholder="Tanggal Transaksi" required>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <input type="time" name="waktu_mulai" class="form-control" id="waktu_mulai" placeholder="Waktu Mulai" required>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <input type="time" name="waktu_selesai" class="form-control" id="waktu_selesai" placeholder="Waktu Selesai" required>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <label for="metode_pembayaran">Metode Pembayaran:</label><br>
-                                    <input type="radio" name="metode_pembayaran" disabled required> Pilih<br>
-                                    <input type="radio" name="metode_pembayaran" value="Cash" required> Cash<br>
-                                    <input type="radio" name="metode_pembayaran" value="Debit" required> Debit<br>
-                                    <input type="radio" name="metode_pembayaran" value="QRIS" required> QRIS<br>
-                                </div>
-                            </div>
-                            <div class="text-center mt-3"><button type="submit">Tambah Transaksi</button></div>
-                        </form>
+					<form action="transaksi.php" method="post" role="form" class="php-email-form">
+						<div class="row gy-4">
+							<div class="col-lg-6 col-md-6">
+								<label for="ID_penyewa" class="form-label">Nama Penyewa</label>
+								<select class="form-control" aria-label="Category" id="ID_penyewa" name="ID_penyewa" required>
+									<option value="" selected disabled hidden>Pilih</option>
+									<?php
+									foreach($penyewa as $penyewa){
+										echo '<option value="'.$penyewa['ID'].'">'.$penyewa['nama'].'</option>';
+									}
+									?>
+								</select>
+							</div>
+							<div class="col-lg-6 col-md-6">
+								<label for="ID_lapangan" class="form-label">Jenis Lapangan</label>
+								<select class="form-control" aria-label="Category" id="ID_lapangan" name="ID_lapangan" required>
+									<option value="" selected disabled hidden>Pilih</option>
+									<?php
+									foreach($lapangan as $lapangan){
+										echo '<option value="'.$lapangan['ID'].'">'.$lapangan['jenis_lapangan'].'</option>';
+									}
+									?>
+								</select>
+							</div>
+							<div class="col-lg-6 col-md-6">
+								<label for="tanggal_transaksi" class="form-label">Tanggal Transaksi</label>
+								<input type="date" name="tanggal_transaksi" class="form-control" id="tanggal_transaksi" placeholder="Tanggal Transaksi" required>
+							</div>
+							<div class="col-lg-6 col-md-6">
+								<label for="waktu_mulai" class="form-label">Waktu Mulai</label>
+								<input type="time" name="waktu_mulai" class="form-control" id="waktu_mulai" placeholder="Waktu Mulai" required>
+							</div>
+							<div class="col-lg-6 col-md-6">
+								<label for="waktu_selesai" class="form-label">Waktu Selesai</label>
+								<input type="time" name="waktu_selesai" class="form-control" id="waktu_selesai" placeholder="Waktu Selesai" required>
+							</div>
+							<div class="col-lg-6 col-md-6">
+								<label for="metode_pembayaran">Metode Pembayaran:</label><br>
+								<select class="form-control" aria-label="Category" id="metode_pembayaran" name="metode_pembayaran" required>
+									<option value="" selected disabled hidden>Pilih</option>
+									<option value="Cash">Cash</option>
+									<option value="QRIS">QRIS</option>
+									<option value="Debit">Debit</option>
+								</select>
+							</div>
+						</div>
+						<div class="text-center mt-3">
+							<button type="submit" name="btn-add">Tambah Transaksi</button>
+						</div>
+					</form>
                     </div><!-- End Form Tambah Transaksi -->
 
                 </div>

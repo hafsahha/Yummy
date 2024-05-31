@@ -10,9 +10,7 @@
         $tanggal = $data['tanggal_transaksi'];
         $start = $data['waktu_mulai'];
         $finish = $data['waktu_selesai'];
-        $metode = $data['metode_pembayaran'];
-        
-    
+        $metode = $data['metode_pembayaran'];    
     
         $query = "CALL add_transaksi('$IDPenyewa','$IDLapangan', '$tanggal', '$start', '$finish', '$metode')";
         $result = mysqli_query($conn, $query);
