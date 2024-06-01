@@ -21,29 +21,5 @@ $(document).ready(function () {
             console.log(response);
             $('#form_image').css('background-image', 'url(assets/img/lapangan/' + response.gambar);
         }
-    });
-    
-    $('#provinsi').change(function() {
-        var id_provinsi = $('#provinsi').val();
-        $('#form_kabupaten').slideDown();
-        $('#kota').empty();
-        $('#kota').append('<option value="" selected disabled hidden>Pilih</option>');
-        $.ajax({
-            url: 'kabupaten.php?id=' + id_provinsi,
-            type: 'GET',
-            datatype: 'json',
-            data: {id_provinsi: id_provinsi},
-            success: function(response) {
-                console.log(response);
-                for (let i = 0; i < response.length; i++) {
-                    $('#kota').append('<option value="' + response[i].id + '">' + response[i].name + '</option>');
-                }
-            }
-        });
-    });
-
-    $('#kota').change(function() {
-        $('#form_kecamatan').slideDown();
-        $('#form_kelurahan').slideDown();
-    });
+    });
 });
