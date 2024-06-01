@@ -19,7 +19,7 @@ $(document).ready(function () {
         datatype: 'json',
         success: function(response) {
             console.log(response);
-            $('#form_image').css('background-image: url(assets/img/lapangan/' + response.gambar);
+            $('#form_image').css('background-image', 'url(assets/img/lapangan/' + response.gambar);
         }
     });
     
