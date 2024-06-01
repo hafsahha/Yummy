@@ -10,7 +10,7 @@
         while($temp = mysqli_fetch_assoc($result)) {
             $datas[] = [
                 "ID" => $temp["ID"],
-                "name" => $temp["name"],
+                "gambar" => $temp["gambar"],
             ];
         }
     }
