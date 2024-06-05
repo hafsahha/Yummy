@@ -40,6 +40,7 @@ git clone https://github.com/hafsahha/Yummy.git
 
 ## Kontributor
 - Datuk Daneswara Raditya Samsura ([@codewara](https://github.com/codewara))
+- Hafsah Hamidah ([@hafsahha](https://github.com/hafsahha))
 - Naeya Adeani Putri ([@naeyaadeanip](https://github.com/naeyaadeanip))
 - Narendra Ridha Baihaqi ([@narenridha](https://github.com/narenridha))
 - Nina Wulandari ([@naainwdr](https://github.com/naainwdr))
