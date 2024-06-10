@@ -165,3 +165,17 @@
     
         return $result;
     }
+
+    function ReadLapanganDetail($id) {
+        global $conn;
+
+        // Escape ID untuk mencegah SQL Injection
+        $query = "SELECT * FROM lapangan WHERE ID = $id";
+        $result = mysqli_query($conn, $query);
+    
+        if ($result) {
+            return mysqli_fetch_assoc($result);
+        } else {
+            return null;
+        }
+    }
