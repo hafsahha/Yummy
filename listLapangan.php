@@ -119,11 +119,6 @@
 
           <div class="tab-pane fade active show" id="menu-starters">
 
-            <div class="tab-header text-center">
-              <p>Menu</p>
-              <h3>Starters</h3>
-            </div>
-
             <div class="row gy-5">
               <?php
                 foreach ($lapangan as $lapangan) {
