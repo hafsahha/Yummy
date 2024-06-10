@@ -157,89 +157,14 @@
                   echo '<a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/lapangan/'.$lapangan['gambar'].'" class="menu-img img-fluid" alt=""></a>';
                   echo '<h4>'.$lapangan['jenis_lapangan'].'</h4>';
                   echo '<p class="price">'.$lapangan['harga'].'</p>';
-                  echo '<li><a href="transaksi.php?id='.$lapangan['ID'].'"></a></li>';
-                  echo '<li><a href="transaksi.php?id='.$lapangan['ID'].'"></a></li>';
+                  echo '<li><a href="transaksi.php?id='.$lapangan['ID'].'">Order</a></li>';
+                  echo '<li><a href="detailLapangan.php?id='.$lapangan['ID'].'"></a>Detail</li>';
                   echo '</div>';
                 }
               ?>
 
             </div>
           </div><!-- End Starter Menu Content -->
-
-          <div class="tab-pane fade" id="menu-breakfast">
-
-            <div class="tab-header text-center">
-              <p>Menu</p>
-              <h3>Breakfast</h3>
-            </div>
-
-            <div class="row gy-5">
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Magnam Tiste</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $5.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img src="assets/img/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Aut Luia</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $14.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img src="assets/img/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Est Eligendi</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $8.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-4.png" class="glightbox"><img src="assets/img/menu/menu-item-4.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Eos Luibusdam</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $12.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img src="assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Eos Luibusdam</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $12.95
-                </p>
-              </div><!-- Menu Item -->
-
-              <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img src="assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Laboriosam Direva</h4>
-                <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </p>
-                <p class="price">
-                  $9.95
-                </p>
-              </div><!-- Menu Item -->
 
             </div>
           </div>
