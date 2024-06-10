@@ -157,8 +157,8 @@
                   echo '<a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/lapangan/'.$lapangan['gambar'].'" class="menu-img img-fluid" alt=""></a>';
                   echo '<h4>'.$lapangan['jenis_lapangan'].'</h4>';
                   echo '<p class="price">'.$lapangan['harga'].'</p>';
-                  echo '<li><a href="transaksi.php?id='.$lapangan['ID'].'">Order Ga C</a></li>';
-                  echo '<li><a href="detailLapangan.php?id='.$lapangan['ID'].'">Detail</a></li>';
+                  echo '<li><a href="transaksi.php?id='.$lapangan['ID'].'"></a></li>';
+                  echo '<li><a href="transaksi.php?id='.$lapangan['ID'].'"></a></li>';
                   echo '</div>';
                 }
               ?>
