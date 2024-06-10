@@ -130,7 +130,7 @@
                   echo '<div class="col-lg-4 menu-item">';
                   echo '<a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/lapangan/'.$lapangan['gambar'].'" class="menu-img img-fluid" alt=""></a>';
                   echo '<h4>' . str_replace('_', ' ', $lapangan['jenis_lapangan']) . '</h4>';
-                  echo '<p class="price">' . 'Rp ' . number_format($lapangan['harga'], 0, ',', '.') . '</p>'; 
+                  echo '<p class="price">' . 'Rp ' . number_format($lapangan['harga'], 0, ',', '.') . '/jam</p>'; 
                   echo '<a class="btn btn-success" href="transaksi.php?id='.$lapangan['ID'].'">Order</a>'.'&nbsp';
                   echo '<a class="btn btn-info" href="detailLapangan.php?id='.$lapangan['ID'].'">Detail</a>';
                   echo '</div>';

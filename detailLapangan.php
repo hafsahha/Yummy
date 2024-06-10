@@ -148,7 +148,7 @@
                                 <li
                                 class="border-bottom p-2 d-flex justify-content-between">
                                 <span>Jenis Lapangan</span>
-                                <span style="font-weight: 600"><?= $lapanganDetail['jenis_lapangan'] ?></span>
+                                <span style="font-weight: 600"><?= str_replace('_', ' ', $lapangan['jenis_lapangan']) ?></span>
                                 </li>
                                 <li
                                 class="border-bottom p-2 d-flex justify-content-between">
