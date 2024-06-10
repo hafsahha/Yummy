@@ -1,4 +1,5 @@
 <?php
+  include('function.php');
   $lapangan = readActivelapangan();
 ?>
 
@@ -111,35 +112,8 @@
 
         <div class="section-header">
           <h2>List Lapangan</h2>
-          <p>Check Our<span>Yummy Menu</span></p>
+          <p>Lapangan<span>Kami</span></p>
         </div>
-
-        <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
-
-          <li class="nav-item">
-            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-starters">
-              <h4>Starters</h4>
-            </a>
-          </li><!-- End tab nav item -->
-
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-breakfast">
-              <h4>Breakfast</h4>
-            </a><!-- End tab nav item -->
-
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-lunch">
-              <h4>Lunch</h4>
-            </a>
-          </li><!-- End tab nav item -->
-
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
-              <h4>Dinner</h4>
-            </a>
-          </li><!-- End tab nav item -->
-
-        </ul>
 
         <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
 
@@ -155,10 +129,10 @@
                 foreach ($lapangan as $lapangan) {
                   echo '<div class="col-lg-4 menu-item">';
                   echo '<a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/lapangan/'.$lapangan['gambar'].'" class="menu-img img-fluid" alt=""></a>';
-                  echo '<h4>'.$lapangan['jenis_lapangan'].'</h4>';
-                  echo '<p class="price">'.$lapangan['harga'].'</p>';
-                  echo '<li><a href="transaksi.php?id='.$lapangan['ID'].'">Order</a></li>';
-                  echo '<li><a href="detailLapangan.php?id='.$lapangan['ID'].'"></a>Detail</li>';
+                  echo '<h4>' . str_replace('_', ' ', $lapangan['jenis_lapangan']) . '</h4>';
+                  echo '<p class="price">' . 'Rp ' . number_format($lapangan['harga'], 0, ',', '.') . '</p>'; 
+                  echo '<a class="btn btn-success" href="transaksi.php?id='.$lapangan['ID'].'">Order</a>'.'&nbsp';
+                  echo '<a class="btn btn-info" href="detailLapangan.php?id='.$lapangan['ID'].'">Detail</a>';
                   echo '</div>';
                 }
               ?>
