@@ -232,17 +232,17 @@
             </div>
 
             <div class="row gy-5">
-              <?php
+            <?php
                 foreach($listLapangan as $lapangan){
               ?>
                 <div class="col-lg-4 menu-item">
                   <a href="assets/img/lapangan/<?= $lapangan['gambar'] ?>" class="glightbox"><img src="assets/img/lapangan/<?= $lapangan['gambar'] ?>" class="menu-img img-fluid" alt="gambar"></a>
                   <h4><?= $lapangan['jenis_lapangan'] ?></h4>
                   <p class="price">
-                    RP. <?= $lapangan['harga'] ?>
+                    Rp<?= number_format($lapangan['harga']) ?>
                   </p>
                   <div class="text-center">
-                    <a class="btn btn-primary mt-auto" href="transaksi.php?id=<?=$lapangan['ID'] ?>">Sewa</a>
+                    <a class="btn btn-primary mt-auto" href="transaksi.ph p?id=<?=$lapangan['ID'] ?>">Sewa</a>
                     <a
                       class="btn btn-info mt-auto text-white"
                       href="{{ route('detail') }}"
@@ -263,10 +263,6 @@
 
       </div>
     </section>
-
-
-
-    
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
