@@ -2,21 +2,25 @@
     include('function.php');
     $transaksi = readTransaksi();
     $penyewa = readPenyewa();
-    $lapangan = readActivelapangan();
+    $lapangan = readlapangan();
+    $fasilitas = readFasilitas();
 
 	if (isset($_POST['btn-add'])) {
         if (isset($_POST['membership'])) {
             $isAddSucceed = addTransaksi($_POST);
         } else {
             $_POST['membership'] = 0;
-            $isAddSucceed_1 = addPenyewa($_POST);
+            if (!findPenyewa($_POST['nama'])) {
+                $isAddSucceed_1 = addPenyewa($_POST);
+            } else $isAddSucceed_1 = 1;
             $temp = findPenyewa($_POST['nama']);
             foreach ($temp as $t) {
                 $_POST['ID_penyewa'] = $t['ID'];
             }
             $isAddSucceed_2 = addTransaksi($_POST);
         }
-        if ($isAddSucceed || ($isAddSucceed_1 && $isAddSucceed_2)) {
+
+        if (($isAddSucceed || ($isAddSucceed_1 && $isAddSucceed_2))) {
             echo "
             <script>
                 alert('Data Berhasil Ditambahkan');
@@ -157,7 +161,9 @@
                                         <option value="" selected disabled hidden>Pilih</option>
                                         <?php
                                         foreach($penyewa as $penyewa){
-                                            echo '<option value="'.$penyewa['ID'].'">'.$penyewa['nama'].'</option>';
+                                            if ($penyewa['membership'] == 1) {
+                                                echo '<option value="'.$penyewa['ID'].'">'.$penyewa['nama'].'</option>';
+                                            }
                                         }
                                         ?>
                                     </select>
@@ -168,12 +174,14 @@
                                 <label for="membership">Saya Memiliki Membership</label>
                             </div>
 							<div class="col-lg-6 col-md-6">
-								<label for="ID_lapangan" class="form-label">Jenis Lapangan</label>
+                                <label for="ID_lapangan" class="form-label">Jenis Lapangan</label>
 								<select class="form-select" aria-label="Category" id="ID_lapangan" name="ID_lapangan">
 									<option value="" selected disabled hidden>Pilih</option>
 									<?php
 									foreach($lapangan as $lapangan){
-										echo '<option value="'.$lapangan['ID'].'">'.$lapangan['jenis_lapangan'].'</option>';
+                                        if ($lapangan['status'] == 1) {
+                                            echo '<option value="'.$lapangan['ID'].'">'.$lapangan['jenis_lapangan'].'</option>';
+                                        }
 									}
 									?>
 								</select>
@@ -187,19 +195,51 @@
 								<input type="time" name="waktu_mulai" class="form-control" id="waktu_mulai" placeholder="Waktu Mulai" required>
 							</div>
 							<div class="col-lg-6 col-md-6">
-								<label for="waktu_selesai" class="form-label">Waktu Selesai</label>
+                                <label for="waktu_selesai" class="form-label">Waktu Selesai</label>
 								<input type="time" name="waktu_selesai" class="form-control" id="waktu_selesai" placeholder="Waktu Selesai" required>
 							</div>
-							<div class="col-lg-6 col-md-6">
-								<label for="metode_pembayaran" class="form-label">Metode Pembayaran:</label><br>
-								<select class="form-select" aria-label="Category" id="metode_pembayaran" name="metode_pembayaran" required>
-									<option value="" selected disabled hidden>Pilih</option>
-									<option value="Cash">Cash</option>
-									<option value="QRIS">QRIS</option>
-									<option value="Debit">Debit</option>
-								</select>
-							</div>
-						</div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="mb-3">
+                                    <label for="metode_pembayaran" class="form-label">Metode Pembayaran:</label><br>
+                                    <select class="form-select" aria-label="Category" id="metode_pembayaran" name="metode_pembayaran" required>
+                                        <option value="" selected disabled hidden>Pilih</option>
+                                        <option value="Cash">Cash</option>
+                                        <option value="QRIS">QRIS</option>
+                                        <option value="Debit">Debit</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="checkbox" id="fasilitas" name="fasilitas">
+                                    <label for="fasilitas">Tambah Fasilitas Ekstra</label>
+                                </div>
+                                <div id="fasilitaz" class="mb-3">
+                                    <select class="form-select" aria-label="Category" id="fasilitas_ekstra" name="fasilitas_ekstra[0]">
+                                        <option value="" selected disabled hidden>Pilih</option>
+                                        <?php
+                                        foreach($fasilitas as $fasilitas){
+                                            echo '<option value="'.$fasilitas['ID'].'">'.$fasilitas['nama_fasilitas'].'</option>';
+                                        }
+                                        ?>
+                                    </select>
+                                    <div id="fasilitas_container"></div>
+                                    <div class="mb-3">
+                                        <button type="button" id="add_fasilitas" class="btn btn-primary btn-add-fasil">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="total" class="col-lg-6 col-md-6">
+                                <h4>Tagihan:</h4>
+                                <div id="price">
+                                    <p id="field_price" class="d-flex justify-content-between">Harga Lapangan : <b></b></p>
+                                </div>
+                                <div id="extra">
+                                    <p id="field_extra" class="d-flex justify-content-between">Fasilitas Ekstra : <b></b></p>
+                                </div>
+                                <div id="duration">
+                                    <p id="field_duration" class="d-flex justify-content-between">Durasi : <b></b></p>
+                                </div>
+                            </div>
+                        </div>
 						<div class="text-center mt-3">
 							<button type="submit" name="btn-add">Tambah Transaksi</button>
 						</div>

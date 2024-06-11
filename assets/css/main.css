@@ -1300,6 +1300,24 @@ section {
   }
 }
 
+#total h4 {
+  margin-bottom: 1rem;
+}
+
+#total p {
+  margin-bottom: 0.5rem;
+}
+
+.btn-add-fasil {
+  margin: 0.5rem 0.5rem 0 0;
+  border-radius: 50%;
+}
+
+.btn-del-fasil {
+  margin: 0;
+  border-radius: 0;
+}
+
 /*--------------------------------------------------------------
 # Gallery Section
 --------------------------------------------------------------*/
