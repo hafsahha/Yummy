@@ -12,7 +12,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Yummy Bootstrap Template - Index</title>
+  <title>ABADEEZ</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -52,8 +52,8 @@
 
       <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1>Yummy<span>.</span></h1>
+        <img src="assets/img/logo.png" alt="">
+        <h1><span></span></h1>
       </a>
 
       <nav id="navbar" class="navbar">
@@ -66,7 +66,7 @@
         </ul>
       </nav><!-- .navbar -->
 
-      <a class="btn-book-a-table" href="transaksi.php">Book a Table</a>
+      <a class="btn-book-a-table" href="transaksi.php">Reservasi Lapangan</a>
 
     </div>
   </header><!-- End Header -->
@@ -76,10 +76,10 @@
     <div class="container">
       <div class="row justify-content-between gy-5">
         <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
-          <h2 data-aos="fade-up">Enjoy Your Healthy<br>Delicious Food</h2>
-          <p data-aos="fade-up" data-aos-delay="100">Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum quaerat.</p>
+          <h2 data-aos="fade-up">Reserve Your Game,<br>Elevate Your Play</h2>
+          <p data-aos="fade-up" data-aos-delay="100">Reservasi lapangan di Abadi Sport Center kini lebih mudah dengan Abadeez, memberikan Anda akses tanpa hambatan ke semua fasilitas olahraga.</p>
           <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-            <a href="transaksi.php" class="btn-book-a-table">Book a Table</a>
+            <a href="transaksi.php" class="btn-book-a-table">Reservasi Lapangan</a>
           </div>
         </div>
         <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
@@ -128,7 +128,7 @@
         <div class="row gy-4">
           <div class="col-lg-7 position-relative about-img" style="background-image: url(assets/img/about.jpg) ;" data-aos="fade-up" data-aos-delay="150">
             <div class="call-us position-absolute">
-              <h4>Book a Table</h4>
+              <h4>Reservasi Lapangan</h4>
               <p>+1 5589 55488 55</p>
             </div>
           </div>
