@@ -179,3 +179,14 @@
             return null;
         }
     }
+
+    function readLapanganWithPJ(){
+        global $conn;
+    
+        $query = "SELECT lapangan.*, pj.nama AS nama_pj 
+                  FROM lapangan 
+                  LEFT JOIN pj ON lapangan.ID_PJ = pj.ID";
+        $result = mysqli_query($conn, $query);
+    
+        return $result;
+    }
