@@ -359,8 +359,8 @@
           <div>
             <h4>Address</h4>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022 - US<br>
+            Jl. Dr. Setiabudi No.287B, Isola,  <br>
+            Kec. Sukasari, Kota Bandung, Jawa Barat 40154<br>
             </p>
           </div>
 
@@ -371,8 +371,8 @@
           <div>
             <h4>Reservations</h4>
             <p>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+              <strong>Phone:</strong> +(022) 20135755<br>
+              <strong>Email:</strong> abadeez@example.com<br>
             </p>
           </div>
         </div>
@@ -382,8 +382,8 @@
           <div>
             <h4>Opening Hours</h4>
             <p>
-              <strong>Mon-Sat: 11AM</strong> - 23PM<br>
-              Sunday: Closed
+              <strong>Mon-Sun: 7AM</strong> - 22PM<br>
+              Holiday: Closed
             </p>
           </div>
         </div>
