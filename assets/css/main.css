@@ -1726,3 +1726,41 @@ section {
   background-color: #17a2b8;
   border-color: #17a2b8;
 }
+
+.banner {
+  background-color: #f8f9fa; /* Warna latar belakang */
+  padding: 60px 0; /* Padding atas dan bawah */
+}
+
+.banner h2 {
+  color: #343a40; /* Warna teks judul */
+  font-size: 36px; /* Ukuran font judul */
+}
+
+.banner p {
+  color: #6c757d; /* Warna teks paragraf */
+  font-size: 18px; /* Ukuran font paragraf */
+  margin-bottom: 30px; /* Margin bawah */
+}
+
+.btn-book-a-table {
+  background-color: #dc3545; /* Warna latar tombol */
+  color: #fff; /* Warna teks tombol */
+  padding: 15px 40px; /* Padding tombol */
+  border-radius: 5px; /* Border radius tombol */
+  transition: all 0.3s ease; /* Transisi hover */
+}
+
+.btn-book-a-table:hover {
+  background-color: #c82333; /* Warna latar tombol saat dihover */
+}
+
+@media (max-width: 768px) {
+  .banner h2 {
+    font-size: 28px; /* Ukuran font judul pada layar kecil */
+  }
+  
+  .banner p {
+    font-size: 16px; /* Ukuran font paragraf pada layar kecil */
+  }
+}
