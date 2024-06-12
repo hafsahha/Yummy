@@ -117,47 +117,45 @@
       </section><!-- End Gallery Section -->
       
     <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
+      <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
 
-        <div class="section-header">
-          <h2>About Us</h2>
-          <p>Learn More <span>About Us</span></p>
-        </div>
-
-        <div class="row gy-4">
-          <div class="col-lg-7 position-relative about-img" style="background-image: url(assets/img/about.jpg) ;" data-aos="fade-up" data-aos-delay="150">
-            <div class="call-us position-absolute">
-              <h4>Reservasi Lapangan</h4>
-              <p>+1 5589 55488 55</p>
-            </div>
+          <div class="section-header">
+            <h2>About Us</h2>
+            <p>Learn More <span>About Us</span></p>
           </div>
-          <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
-            <div class="content ps-0 ps-lg-5">
-              <p class="fst-italic">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua.
-              </p>
-              <ul>
-                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-              </ul>
-              <p>
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
-              </p>
 
-              <div class="position-relative mt-4">
-                <img src="assets/img/about-2.jpg" class="img-fluid" alt="">
-                <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
+          <div class="row gy-4">
+            <div class="col-lg-7 position-relative about-img" 
+                style="background-image: url(assets/img/about.jpg); background-size: contain; background-repeat: no-repeat; height: 750px;" 
+                data-aos="fade-up" data-aos-delay="150">
+              <div class="call-us position-absolute">
+                <h4>Call Center</h4>
+                <p>+(022) 20135755</p>
+              </div>
+            </div>
+            <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
+              <div class="content ps-0 ps-lg-5">
+                <p class="fst-italic">
+                  Abadi Sport Center & Restaurant, sebuah destinasi yang menawarkan pengalaman berolahraga yang menyenangkan dan menikmati makanan yang enak, terletak di Jl. Dr. Setiabudi, Setiabudi, Bandung. 
+                </p>
+                <ul>
+                  <li><i class="bi bi-check2-all"></i> Lapangan Tenis/Futsal/Basket & Kolam Renang.</li>
+                  <li><i class="bi bi-check2-all"></i> Restaurant.</li>
+                </ul>
+                <p>
+                Tempat ini sangat cocok untuk mereka yang ingin berolahraga dan bersantap di sampingnya. Fasilitas lapangan yang luas dan modern, serta pelayanan yang ramah, membuat Abadi Sport Center & Restaurant menjadi pilihan yang tepat untuk berbagai keperluan. Selain itu, restoran ini juga menawarkan berbagai pilihan makanan yang lezat dan minuman yang segar, sehingga pengunjung dapat menikmati waktu yang menyenangkan dengan keluarga dan teman. Dengan lokasi yang strategis dan fasilitas yang lengkap, Abadi Sport Center & Restaurant adalah tempat yang tepat untuk berolahraga dan bersantap di Bandung.
+                </p>
+
+                <div class="position-relative mt-4">
+                  <img src="assets/img/about-2.jpeg" class="img-fluid" style="width: 100%; max-width: 1200px; height: auto;" alt="">
+                  <a href="https://www.youtube.com/watch?v=jLlwYFd-K3I" class="glightbox play-btn"></a>
               </div>
             </div>
           </div>
-        </div>
 
-      </div>
-    </section><!-- End About Section -->
+        </div>
+      </section><!-- End About Section -->
 
     <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us section-bg">
