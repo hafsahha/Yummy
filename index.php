@@ -302,7 +302,7 @@
               <i class="icon bi bi-telephone flex-shrink-0"></i>
               <div>
                 <h3>Call Us</h3>
-                <p>+1 5589 55488 55</p>
+                <p>+(022) 20135755</p>
               </div>
             </div>
           </div><!-- End Info Item -->
@@ -312,8 +312,8 @@
               <i class="icon bi bi-share flex-shrink-0"></i>
               <div>
                 <h3>Opening Hours</h3>
-                <div><strong>Mon-Sat:</strong> 11AM - 23PM;
-                  <strong>Sunday:</strong> Closed
+                <div><strong>Mon-Sun:</strong> 7AM - 22PM;
+                  <strong>Holiday:</strong> Closed
                 </div>
               </div>
             </div>
