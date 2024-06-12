@@ -160,7 +160,11 @@
     function readTransaksiFasilitas(){
         global $conn;
     
-        $query = "SELECT * FROM transaksi_fasilitas";
+        $query = "SELECT transaksi_fasilitas.*, penyewa.nama AS nama_penyewa, fasilitas.nama_fasilitas AS nama_fasilitas
+                  FROM transaksi_fasilitas 
+                  INNER JOIN transaksi ON transaksi_fasilitas.id_transaksi = transaksi.id
+                  INNER JOIN penyewa ON transaksi.id_penyewa = penyewa.ID
+                  INNER JOIN fasilitas  ON transaksi_fasilitas.ID_fasilitas= fasilitas.ID";
         $result = mysqli_query($conn, $query);
     
         return $result;
@@ -188,5 +192,20 @@
                   LEFT JOIN pj ON lapangan.ID_PJ = pj.ID";
         $result = mysqli_query($conn, $query);
     
+        return $result;
+    }
+
+    function readTransaksiID(){
+        global $conn;
+    
+        $query = "SELECT transaksi.*, penyewa.nama AS nama_penyewa, lapangan.jenis_lapangan AS nama_lapangan, GROUP_CONCAT(fasilitas.nama_fasilitas SEPARATOR ', ') AS fasilitas_sewa
+                  FROM transaksi
+                  LEFT JOIN penyewa ON transaksi.ID_penyewa = penyewa.ID
+                  LEFT JOIN lapangan ON transaksi.ID_lapangan = lapangan.ID
+                  LEFT JOIN transaksi_fasilitas ON transaksi.ID = transaksi_fasilitas.ID_transaksi
+                  LEFT JOIN fasilitas ON transaksi_fasilitas.ID_fasilitas = fasilitas.ID
+                  GROUP BY transaksi.ID";
+        $result = mysqli_query($conn, $query);
+        
         return $result;
     }
