@@ -89,6 +89,19 @@
     </div>
   </section><!-- End Hero Section -->
 
+  <!-- ======= Banner Section ======= -->
+  <section id="banner" class="banner">
+    <div class="container" data-aos="fade-up">
+      <div class="row justify-content-center">
+        <div class="col-md-10 text-center">
+          <h2><b>Get Special Discount!</b></h2>
+          <p>Daftarkan diri anda menjadi membership abadeez dan dapatkan diskon mulai dari 20.000 di setiap transasksi anda</p>
+          <a href="#" class="btn-book-a-table">Daftar Membership</a>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Banner Section -->
+
   <main id="main">
   <!-- ======= Gallery Section ======= -->
       <section id="gallery" class="gallery section-bg">
