@@ -65,19 +65,30 @@
     function addLapangan($data){
         global $conn;
     
-        $jenisLapangan = $data['jenis_lapangan'];
-        $jenisOlahraga = $data['jenis_olahraga'];
-        $fasilitas = $data['fasilitas_umum'];
+        // Escape nilai string untuk mencegah serangan SQL Injection
+        $jenisLapangan = mysqli_real_escape_string($conn, $data['jenis_lapangan']);
+        $jenisOlahraga = mysqli_real_escape_string($conn, $data['jenis_olahraga']);
+        $fasilitas = mysqli_real_escape_string($conn, $data['fasilitas_umum']);
         $harga = $data['harga'];
+        $status = $data['status'];
         $pj = $data['ID_PJ'];
+        $gambar = mysqli_real_escape_string($conn, $data['gambar']);
     
-        $query = "CALL add_lapangan('$jenisLapangan', '$jenisOlahraga', '$fasilitas', $harga, $pj)";
+        // Buat query dengan menggunakan parameterisasi untuk mencegah SQL Injection
+        $query = "CALL add_lapangan('$jenisLapangan', '$jenisOlahraga', '$fasilitas', $harga, $status, $pj, '$gambar')";
+        
+        // Eksekusi kueri SQL
         $result = mysqli_query($conn, $query);
     
-        $isSucceed = mysqli_affected_rows($conn);
-    
-        return $isSucceed;
-    }
+        // Periksa keberhasilan eksekusi kueri
+        if($result){
+            // Kembalikan jumlah baris yang terpengaruh
+            return mysqli_affected_rows($conn);
+        } else {
+            // Tangani kesalahan jika kueri gagal dieksekusi
+            return mysqli_error($conn);
+        }
+    }    
 
     function readLapangan(){
         global $conn;
