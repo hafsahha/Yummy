@@ -44,6 +44,17 @@
         return $isSucceed;
     }
 
+    function addMembership($data){
+        global $conn;
+    
+        $query = "UPDATE penyewa SET membership = 1 WHERE ID = $data";
+        $result = mysqli_query($conn, $query);
+    
+        $isSucceed = mysqli_affected_rows($conn);
+    
+        return $isSucceed;
+    }
+
     function readPenyewa(){
         global $conn;
     
@@ -61,7 +72,7 @@
     
         return $result;
     }    
-
+    
     function addLapangan($data){
         global $conn;
     
@@ -88,16 +99,25 @@
             // Tangani kesalahan jika kueri gagal dieksekusi
             return mysqli_error($conn);
         }
-    }    
+    } 
 
     function readLapangan(){
         global $conn;
-    
+        
         $query = "SELECT * FROM lapangan";
         $result = mysqli_query($conn, $query);
-    
+        
         return $result;
     }
+
+    function findLapangan($data){
+        global $conn;
+    
+        $query = "SELECT * FROM lapangan WHERE ID = '$data' LIMIT 1";
+        $result = mysqli_query($conn, $query);
+    
+        return mysqli_fetch_assoc($result);
+    }    
 
     function readActiveLapangan(){
         global $conn;
@@ -217,6 +237,6 @@
                   LEFT JOIN fasilitas ON transaksi_fasilitas.ID_fasilitas = fasilitas.ID
                   GROUP BY transaksi.ID";
         $result = mysqli_query($conn, $query);
-        
+    
         return $result;
     }
