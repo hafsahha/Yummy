@@ -112,7 +112,6 @@ if (isset($_GET['id'])) {
                     <li><a href="#fasilitas">Fasilitas Ekstra</a></li>
                     <li><a href="#penyewa">Penyewa</a></li>
                     <li><a href="#transaksi">Transaksi</a></li>
-                    <li><a href="#transaksi_fasilitas">Transaksi Fasilitas</a></li>
                 </ul>
             </nav><!-- .navbar -->
 
