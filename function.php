@@ -76,30 +76,19 @@
     function addLapangan($data){
         global $conn;
     
-        // Escape nilai string untuk mencegah serangan SQL Injection
-        $jenisLapangan = mysqli_real_escape_string($conn, $data['jenis_lapangan']);
-        $jenisOlahraga = mysqli_real_escape_string($conn, $data['jenis_olahraga']);
-        $fasilitas = mysqli_real_escape_string($conn, $data['fasilitas_umum']);
+        $jenisLapangan = $data['jenis_lapangan'];
+        $jenisOlahraga = $data['jenis_olahraga'];
+        $fasilitas = $data['fasilitas_umum'];
         $harga = $data['harga'];
-        $status = $data['status'];
         $pj = $data['ID_PJ'];
-        $gambar = mysqli_real_escape_string($conn, $data['gambar']);
     
-        // Buat query dengan menggunakan parameterisasi untuk mencegah SQL Injection
-        $query = "CALL add_lapangan('$jenisLapangan', '$jenisOlahraga', '$fasilitas', $harga, $status, $pj, '$gambar')";
-        
-        // Eksekusi kueri SQL
+        $query = "CALL add_lapangan('$jenisLapangan', '$jenisOlahraga', '$fasilitas', $harga, $pj)";
         $result = mysqli_query($conn, $query);
-    
-        // Periksa keberhasilan eksekusi kueri
-        if($result){
-            // Kembalikan jumlah baris yang terpengaruh
-            return mysqli_affected_rows($conn);
-        } else {
-            // Tangani kesalahan jika kueri gagal dieksekusi
-            return mysqli_error($conn);
+        
+        $isSucceed = mysqli_affected_rows($conn);
+        
+        return $isSucceed;
         }
-    } 
 
     function readLapangan(){
         global $conn;
@@ -191,11 +180,7 @@
     function readTransaksiFasilitas(){
         global $conn;
     
-        $query = "SELECT transaksi_fasilitas.*, penyewa.nama AS nama_penyewa, fasilitas.nama_fasilitas AS nama_fasilitas
-                  FROM transaksi_fasilitas 
-                  INNER JOIN transaksi ON transaksi_fasilitas.id_transaksi = transaksi.id
-                  INNER JOIN penyewa ON transaksi.id_penyewa = penyewa.ID
-                  INNER JOIN fasilitas  ON transaksi_fasilitas.ID_fasilitas= fasilitas.ID";
+        $query = "SELECT * FROM transaksi_fasilitas";
         $result = mysqli_query($conn, $query);
     
         return $result;
@@ -221,21 +206,6 @@
         $query = "SELECT lapangan.*, pj.nama AS nama_pj 
                   FROM lapangan 
                   LEFT JOIN pj ON lapangan.ID_PJ = pj.ID";
-        $result = mysqli_query($conn, $query);
-    
-        return $result;
-    }
-
-    function readTransaksiID(){
-        global $conn;
-    
-        $query = "SELECT transaksi.*, penyewa.nama AS nama_penyewa, lapangan.jenis_lapangan AS nama_lapangan, GROUP_CONCAT(fasilitas.nama_fasilitas SEPARATOR ', ') AS fasilitas_sewa
-                  FROM transaksi
-                  LEFT JOIN penyewa ON transaksi.ID_penyewa = penyewa.ID
-                  LEFT JOIN lapangan ON transaksi.ID_lapangan = lapangan.ID
-                  LEFT JOIN transaksi_fasilitas ON transaksi.ID = transaksi_fasilitas.ID_transaksi
-                  LEFT JOIN fasilitas ON transaksi_fasilitas.ID_fasilitas = fasilitas.ID
-                  GROUP BY transaksi.ID";
         $result = mysqli_query($conn, $query);
     
         return $result;

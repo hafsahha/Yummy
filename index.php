@@ -254,8 +254,8 @@
 									<p class="price text-primary">Rp<?= number_format($lapangan['harga']) ?>/jam</p>
 									<div class="mt-auto text-center">
 										<div class="d-flex justify-content-between">
-											<a class="btn btn-primary" href="transaksi.php?id=<?= $lapangan['ID'] ?>">Sewa</a>
-											<a class="btn btn-info text-white" href="{{ route('detail') }}">Detail</a>
+											<a class="btn btn-primary px-5" href="transaksi.php?id=<?= $lapangan['ID'] ?>">Sewa</a>
+											<a class="btn btn-info text-white px-5" href="detailLapangan.php?id=<?=$lapangan['ID']?>">Detail</a>
 										</div>
 									</div>
 								</div>

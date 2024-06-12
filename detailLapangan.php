@@ -194,6 +194,10 @@
                                 <a href="index.php" class="btn d-flex align-items-center justify-content-center btn-danger mt-auto"
                                 style="column-gap: 0.4rem">Kembali ke Daftar Lapangan</a>
                             </div>
+                            <div class="text-center">
+                                <a href="transaksi.php?id=<?=$_GET['id']?>" class="btn d-flex align-items-center justify-content-center btn-primary mt-4"
+                                style="column-gap: 0.4rem">Sewa Lapangan</a>
+                            </div>
                         </div>
 
                     <?php else: ?>

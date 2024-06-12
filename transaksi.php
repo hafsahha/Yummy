@@ -1,9 +1,12 @@
 <?php
     include('function.php');
-    $transaksi = readTransaksi();
     $penyewa = readPenyewa();
     $lapangan = readlapangan();
     $fasilitas = readFasilitas();
+
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+    }
 
 	if (isset($_POST['btn-add'])) {
         if (isset($_POST['membership'])) {
@@ -158,16 +161,24 @@
                             </div>
 							<div class="col-lg-6 col-md-6">
                                 <label for="ID_lapangan" class="form-label">Jenis Lapangan</label>
-								<select class="form-select" aria-label="Category" id="ID_lapangan" name="ID_lapangan">
-									<option value="" selected disabled hidden>Pilih</option>
-									<?php
-									foreach($lapangan as $lapangan){
+								
+                                <?php
+                                if (isset($_GET['id'])) {
+                                    $selected = findLapangan($id);
+                                    echo '<input type="text" class="form-control" value="'.$selected['jenis_lapangan'].'" disabled>';
+                                    echo '<input type="hidden" id="ID_lapangan" name="ID_lapangan" value="'.$selected['ID'].'">';
+                                } else {
+                                    echo '<select class="form-select" aria-label="Category" id="ID_lapangan" name="ID_lapangan">';
+                                    echo '<option value="" selected disabled hidden>Pilih</option>';
+                                    foreach($lapangan as $lapangan){    
                                         if ($lapangan['status'] == 1) {
                                             echo '<option value="'.$lapangan['ID'].'">'.$lapangan['jenis_lapangan'].'</option>';
                                         }
-									}
-									?>
-								</select>
+                                    }
+                                    echo '</select>';
+                                }
+                                ?>
+								
 							</div>
 							<div class="col-lg-6 col-md-6">
 								<label for="tanggal_transaksi" class="form-label">Tanggal Reservasi</label>
@@ -218,8 +229,14 @@
                                 <div id="extra">
                                     <p id="field_extra" class="d-flex justify-content-between">Fasilitas Ekstra : <b></b></p>
                                 </div>
+                                <div id="discount">
+                                    <p id="field_discount" class="d-flex justify-content-between">Diskon Membership : <b></b></p>
+                                </div>
                                 <div id="duration">
                                     <p id="field_duration" class="d-flex justify-content-between">Durasi : <b></b></p>
+                                </div>
+                                <div id="pricetotal">
+                                    <h4 id="field_total" class="d-flex mt-6 justify-content-between">total tagihan : <b></b></h4>
                                 </div>
                             </div>
                         </div>
@@ -320,5 +337,12 @@
     <script src="assets/js/ajax.js"></script>
 
 </body>
-
+<?php if (isset($_GET['id'])): ?>
+<script>
+    $(document).ready(function() {
+        var ID = <?php echo json_encode($selected['ID']); ?>;
+        $('#ID_lapangan').val(ID).trigger('change');
+    });
+</script>
+<?php endif; ?>
 </html>

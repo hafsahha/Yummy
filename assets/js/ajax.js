@@ -6,7 +6,7 @@ $(document).ready(function () {
 
         if (start > end) {
             // Atur nilai waktu selesai sama dengan waktu mulai
-            $('#waktu_selesai').val($(this).val());
+            end = $(this).val();
         }
 
         // Calculate the difference in milliseconds
@@ -29,6 +29,11 @@ $(document).ready(function () {
     $('#total').hide();
     $('#extra').hide();
     $('#duration').hide();
+    $('#pricetotal').hide();
+
+    var fieldprice = 0;
+    var extras = 0;
+    var duration = 0;
     
     $('#membership').change(function() {
         $('#member').slideToggle();
@@ -42,6 +47,7 @@ $(document).ready(function () {
             $('#non_member input').prop('required', true);
             $('#member select').prop('required', false);
             $('#member select').val('');
+            $('#discount').slideUp();
         }
     });
 
@@ -57,6 +63,11 @@ $(document).ready(function () {
         }
     });
     
+    $('#member select').change(function() {
+        $('#discount').slideDown();
+        $('#discount b').html('- Rp20000/jam');
+    });
+    
     $('#ID_lapangan').change(function() {
         $('#total').slideDown();
         var ID = $('#ID_lapangan').val();
@@ -66,6 +77,7 @@ $(document).ready(function () {
             datatype: 'json',
             data: {ID: ID},
             success: function(response) {
+                fieldprice = response[0].harga;
                 $('#form_image').css('background-image', 'url(assets/img/lapangan/' + response[0].gambar + ')');
                 $('#field_price b').html('Rp' + response[0].harga + '/jam');
             }
@@ -81,7 +93,8 @@ $(document).ready(function () {
             datatype: 'json',
             data: {ID: ID},
             success: function(response) {
-                $('#field_extra b').html('Rp' + response[0].harga + '/jam');
+                extras += response[0].harga;
+                $('#field_extra b').html('Rp' + extras + '/jam');
             }
         });
     });
@@ -92,14 +105,24 @@ $(document).ready(function () {
 
         if (waktuMulai && waktuSelesai) {
             $('#duration').slideDown();
-            $('#field_duration b').html(handleTimeChange() + ' jam');
+            duration = handleTimeChange();
+            $('#field_duration b').html(duration + ' jam');
+        }
+    });
+    
+    $('#ID_lapangan, #fasilitaz, #waktu_mulai, #waktu_selesai').change( function () {
+        var total = (fieldprice + extras) * duration;
+
+        if (fieldprice && duration) {
+            $('#pricetotal').slideDown();
+            $('#pricetotal b').html('Rp' + total);
         }
     });
 
     $('#add_fasilitas').click(function() {
         var fasilitasSelect = `
             <div class="d-flex fasilitas-ekstra-container">
-                <select class="form-select fasilitas-ekstra" aria-label="Category" name="fasilitas_ekstra[]">
+                <select class="form-select fasilitas-ekstra" aria-label="Category" name="fasilitas_ekstra">
                     <option value="" selected disabled hidden>Pilih</option>
                     <?php
                     foreach($fasilitas as $fasilitas){
@@ -127,28 +150,5 @@ $(document).ready(function () {
                 $(this).empty().show();
             });
         }
-    });
-
-    $('#editLapanganModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget); // Tombol yang membuka modal
-        var id_lapangan = button.data('id'); // Ambil ID lapangan dari atribut data-id
-
-        // AJAX request untuk mengambil data lapangan berdasarkan ID
-        $.ajax({
-            url: 'getLapanganById.php', // URL endpoint yang sesuai
-            type: 'GET',
-            data: { id: id_lapangan },
-            dataType: 'json',
-            success: function (response) {
-                // Isi data dalam form modal dengan data yang diterima dari server
-                $('#editLapanganModal input[name="ID"]').val(response.ID);
-                $('#editLapanganModal input[name="jenis_lapangan"]').val(response.jenis_lapangan);
-                $('#editLapanganModal input[name="jenis_olahraga"]').val(response.jenis_olahraga);
-                $('#editLapanganModal input[name="fasilitas_umum"]').val(response.fasilitas_umum);
-                $('#editLapanganModal input[name="harga"]').val(response.harga);
-                $('#editLapanganModal select[name="status"]').val(response.status);
-                $('#editLapanganModal select[name="ID_PJ"]').val(response.ID_PJ);
-            }
-        });
     });
 });
