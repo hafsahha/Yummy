@@ -249,8 +249,10 @@
                       <h4 class="card-title"><?= $lapangan['jenis_lapangan'] ?></h4>
                       <p class="price text-primary">Rp<?= number_format($lapangan['harga']) ?></p>
                       <div class="mt-auto text-center">
-                        <a class="btn btn-primary mb-2" href="transaksi.php?id=<?= $lapangan['ID'] ?>">Sewa</a>
-                        <a class="btn btn-info text-white" href="{{ route('detail') }}">Detail</a>
+                        <div class="d-flex justify-content-between">
+                          <a class="btn btn-primary mb-2" href="transaksi.php?id=<?= $lapangan['ID'] ?>">Sewa</a>
+                          <a class="btn btn-info text-white" href="{{ route('detail') }}">Detail</a>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -261,6 +263,7 @@
         </div>
       </div>
     </section>
+
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
