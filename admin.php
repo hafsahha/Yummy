@@ -6,6 +6,9 @@ $listLapangan = readLapanganWithPJ();
 $listPJ = readPJ();
 $listPenyewa = readPenyewa();
 $listFasilitas = readFasilitas();
+$listTransaksi = readTransaksiID();
+$listTransaksiFasilitas = readTransaksiFasilitas();
+
 
 // Handle form submissions for adding data
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -200,7 +203,42 @@ if (isset($_GET['id'])) {
             </div>
         </section>
 
-
+        <!-- Bagian untuk Fasilitas Ekstra -->
+        <section id="fasilitas" class="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Fasilitas Ekstra</h2>
+                    <p>Data <span>Fasilitas Ekstra</span> Abadi</p>
+                    <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addFasilitasModal">+ Tambah Fasilitas Ekstra</a>
+                </div>
+                <table class="table table-bordered table-striped table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">NO</th>
+                            <th scope="col">Nama Fasilitas</th>
+                            <th scope="col">Harga</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $nomor = 1; ?> <!-- Inisialisasi nomor urut -->
+                        <?php foreach($listFasilitas as $fasilitas): ?>
+                        <tr>
+                            <td><?= $nomor++; ?></td> <!-- Tampilkan nomor urut dan tambahkan increment -->
+                            <td><?= $fasilitas['nama_fasilitas'] ?></td>
+                            <td>Rp <?= number_format($fasilitas['harga'], 0, ',', '.') ?></td>
+                            <td>
+                                <!-- Tambahkan tombol untuk mengedit dan menghapus fasilitas ekstra -->
+                                <a href="editFasilitas.php?id_fasilitas=<?= $fasilitas['ID'] ?>" class="btn btn-warning"><i class="bi bi-pencil-square"></i> Edit</a>
+                                <a href="deleteFasilitas.php?id_fasilitas=<?= $fasilitas['ID'] ?>" onclick="return confirm('Yakin Hapus?')" class="btn btn-danger"><i class="bi bi-trash3"></i> Delete</a>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
         <!-- Bagian untuk Penyewa -->
         <section id="penyewa" class="services">
             <div class="container">
@@ -232,35 +270,90 @@ if (isset($_GET['id'])) {
             </div>
         </section>
 
-        <!-- Bagian untuk Fasilitas Ekstra -->
-        <section id="fasilitas" class="services">
+        <!-- Bagian untuk Transaksi -->
+        <section id="transaksi" class="services">
             <div class="container">
                 <div class="section-header">
-                    <h2>Fasilitas Ekstra</h2>
-                    <p>Data <span>Fasilitas Ekstra</span> Abadi</p>
-                    <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addFasilitasModal">+ Tambah Fasilitas Ekstra</a>
+                    <h2>Transaksi</h2>
+                    <p>Data <span>Transaksi</span> Abadi</p>
                 </div>
                 <table class="table table-bordered table-striped table-hover">
                     <thead class="table-dark">
                         <tr>
                             <th scope="col">NO</th>
-                            <th scope="col">Nama Fasilitas</th>
-                            <th scope="col">Harga</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Penyewa</th>
+                            <th scope="col">Lapangan</th>
+                            <th scope="col">Tanggal Sewa</th>
+                            <th scope="col">Waktu Mulai</th>
+                            <th scope="col">Waktu Selesai</th>
+                            <th scope="col">Fasilitas</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $nomor = 1; ?> <!-- Inisialisasi nomor urut -->
-                        <?php foreach($listFasilitas as $fasilitas): ?>
+                        <?php foreach($listTransaksi as $transaksi): ?>
                         <tr>
                             <td><?= $nomor++; ?></td> <!-- Tampilkan nomor urut dan tambahkan increment -->
-                            <td><?= $fasilitas['nama_fasilitas'] ?></td>
-                            <td>Rp <?= number_format($fasilitas['harga'], 0, ',', '.') ?></td>
+                            <td><?= $transaksi['nama_penyewa'] ?></td>
+                            <td><?= $transaksi['nama_lapangan'] ?></td>
+                            <td><?= $transaksi['tanggal_transaksi'] ?></td>
+                            <td><?= $transaksi['waktu_mulai'] ?></td>
+                            <td><?= $transaksi['waktu_selesai'] ?></td>
                             <td>
-                                <!-- Tambahkan tombol untuk mengedit dan menghapus fasilitas ekstra -->
-                                <a href="editFasilitas.php?id_fasilitas=<?= $fasilitas['ID'] ?>" class="btn btn-warning"><i class="bi bi-pencil-square"></i> Edit</a>
-                                <a href="deleteFasilitas.php?id_fasilitas=<?= $fasilitas['ID'] ?>" onclick="return confirm('Yakin Hapus?')" class="btn btn-danger"><i class="bi bi-trash3"></i> Delete</a>
+                                <?= $transaksi['fasilitas_sewa'] ? $transaksi['fasilitas_sewa'] : "Tidak ada yang disewa" ?>
                             </td>
+                            <td>Rp <?= number_format($transaksi['total'], 0, ',', '.') ?></td>
+                            <td>
+                                <?php 
+                                    $status = $transaksi['status_pembayaran'];
+                                    switch ($status) {
+                                        case 1:
+                                            echo "Pending";
+                                            break;
+                                        case 2:
+                                            echo "Success";
+                                            break;
+                                        case 3:
+                                            echo "Cancel";
+                                            break;
+                                        default:
+                                            echo "Undefined";
+                                    }
+                                ?>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Bagian untuk Transaksi Fasilitas -->
+        <section id="transaksi_fasilitas" class="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Transaksi Fasilitas</h2>
+                    <p>Data <span>Transaksi Fasilitas</span> Abadi</p>
+                </div>
+                <table class="table table-bordered table-striped table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">NO</th>
+                            <th scope="col">Penyewa</th>
+                            <th scope="col">Nama Fasilitas</th>
+                            <th scope="col">Harga</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $nomor = 1; ?> <!-- Inisialisasi nomor urut -->
+                        <?php foreach($listTransaksiFasilitas as $transaksi_fasilitas): ?>
+                        <tr>
+                            <td><?= $nomor++; ?></td> <!-- Tampilkan nomor urut dan tambahkan increment -->
+                            <td><?= $transaksi_fasilitas['nama_penyewa'] ?></td>
+                            <td><?= $transaksi_fasilitas['nama_fasilitas'] ?></td>
+                            <td>Rp <?= number_format($transaksi_fasilitas['harga'], 0, ',', '.') ?></td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
