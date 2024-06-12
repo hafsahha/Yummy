@@ -31,8 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Jika penyimpanan berhasil
     if ($success && $isMoved) {
-        // Redirect kembali ke halaman admin.php setelah menambahkan lapangan
-        header("Location: admin.php");
+        // Redirect kembali ke halaman admin.php#lapangan setelah menambahkan lapangan
+        header("Location: admin.php#lapangan");
         exit;
     } else {
         // Jika terjadi kesalahan, mungkin Anda ingin menangani dengan cara tertentu, misalnya menampilkan pesan kesalahan

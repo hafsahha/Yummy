@@ -16,8 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Jika penambahan fasilitas berhasil
     if ($success) {
-        // Redirect kembali ke halaman admin.php setelah menambahkan fasilitas
-        header("Location: admin.php");
+        // Redirect kembali ke halaman admin.php#fasilitas setelah menambahkan fasilitas
+        header("Location: admin.php#fasilitas");
         exit;
     } else {
         // Jika terjadi kesalahan, mungkin Anda ingin menangani dengan cara tertentu, misalnya menampilkan pesan kesalahan

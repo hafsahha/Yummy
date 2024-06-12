@@ -1,30 +1,34 @@
 <?php
-// Include file function.php atau file yang berisi fungsi-fungsi yang diperlukan
-include('function.php');
+// Include file konfigurasi database
+include 'config.php';
 
-// Pastikan form tambah PJ telah disubmit
+// Periksa jika metode request adalah POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Ambil data yang dikirim dari formulir
-    $nama = $_POST['nama'];
-    $no_hp = $_POST['no_hp'];
+    // Ambil nilai ID PJ dari formulir
+    $id_pj = $_POST['id_pj'];
 
-    // Panggil fungsi addPJ untuk menambahkan data PJ baru
-    $success = addPJ([
-        'nama' => $nama,
-        'no_hp' => $no_hp
-    ]);
+    // Ambil data lainnya dari formulir
+    $nama_pj = $_POST['nama_pj'];
+    $no_hp_pj = $_POST['no_hp_pj'];
 
-    // Jika penambahan data PJ berhasil
-    if ($success) {
-        // Redirect kembali ke halaman admin.php setelah menambahkan PJ
-        header("Location: admin.php");
-        exit;
+    // Siapkan query untuk mengupdate data Penanggung Jawab
+    $query = "UPDATE pj SET nama = '$nama_pj', no_hp = '$no_hp_pj' WHERE ID = $id_pj";
+
+    // Jalankan query untuk mengupdate data
+    $result = mysqli_query($conn, $query);
+
+    // Periksa apakah query berhasil dijalankan
+    if ($result) {
+        // Redirect kembali ke halaman utama dengan pesan sukses
+        header("Location: index.php#pj?edit_pj_success=true");
+        exit();
     } else {
-        // Jika terjadi kesalahan, mungkin Anda ingin menangani dengan cara tertentu, misalnya menampilkan pesan kesalahan
-        echo "Gagal menambahkan data PJ.";
+        // Jika query gagal dijalankan, tampilkan pesan error
+        echo "Error: " . mysqli_error($conn);
     }
 } else {
-    // Jika halaman ini diakses langsung tanpa melalui proses submit form, mungkin ingin melakukan redirect atau menampilkan pesan kesalahan
-    echo "Halaman tidak dapat diakses langsung.";
+    // Jika permintaan bukan POST, redirect ke halaman utama
+    header("Location: index.php#pj");
+    exit();
 }
 ?>
