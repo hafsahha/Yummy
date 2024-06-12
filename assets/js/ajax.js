@@ -128,4 +128,27 @@ $(document).ready(function () {
             });
         }
     });
+
+    $('#editLapanganModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); // Tombol yang membuka modal
+        var id_lapangan = button.data('id'); // Ambil ID lapangan dari atribut data-id
+
+        // AJAX request untuk mengambil data lapangan berdasarkan ID
+        $.ajax({
+            url: 'getLapanganById.php', // URL endpoint yang sesuai
+            type: 'GET',
+            data: { id: id_lapangan },
+            dataType: 'json',
+            success: function (response) {
+                // Isi data dalam form modal dengan data yang diterima dari server
+                $('#editLapanganModal input[name="ID"]').val(response.ID);
+                $('#editLapanganModal input[name="jenis_lapangan"]').val(response.jenis_lapangan);
+                $('#editLapanganModal input[name="jenis_olahraga"]').val(response.jenis_olahraga);
+                $('#editLapanganModal input[name="fasilitas_umum"]').val(response.fasilitas_umum);
+                $('#editLapanganModal input[name="harga"]').val(response.harga);
+                $('#editLapanganModal select[name="status"]').val(response.status);
+                $('#editLapanganModal select[name="ID_PJ"]').val(response.ID_PJ);
+            }
+        });
+    });
 });
