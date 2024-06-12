@@ -207,7 +207,6 @@ if (isset($_GET['id'])) {
                 <div class="section-header">
                     <h2>Penyewa</h2>
                     <p>Data <span>Penyewa</span> Abadi</p>
-                    <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addPenyewaModal">+ Tambah Penyewa</a>
                 </div>
                 <table class="table table-bordered table-striped table-hover">
                     <thead class="table-dark">
@@ -216,7 +215,6 @@ if (isset($_GET['id'])) {
                             <th scope="col">Nama Penyewa</th>
                             <th scope="col">No. HP</th>
                             <th scope="col">Membership</th>
-                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -227,11 +225,6 @@ if (isset($_GET['id'])) {
                             <td><?= $penyewa['nama'] ?></td>
                             <td><?= $penyewa['no_hp'] ?></td>
                             <td><?= ($penyewa['membership'] == 1) ? 'Member' : 'Non-Member' ?></td>
-                            <td>
-                                <!-- Tambahkan tombol untuk mengedit dan menghapus penyewa -->
-                                <a href="editPenyewa.php?id_penyewa=<?= $penyewa['ID'] ?>" class="btn btn-warning"><i class="bi bi-pencil-square"></i> Edit</a>
-                                <a href="deletePenyewa.php?id_penyewa=<?= $penyewa['ID'] ?>" onclick="return confirm('Yakin Hapus?')" class="btn btn-danger"><i class="bi bi-trash3"></i> Delete</a>
-                            </td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -507,42 +500,6 @@ if (isset($_GET['id'])) {
             </div>
         </div>
     </div>
-
-    <!-- Modal untuk menambah Penyewa -->
-    <div class="modal fade" id="addPenyewaModal" tabindex="-1" aria-labelledby="addPenyewaModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addPenyewaModalLabel">Tambah Penyewa Baru</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="process_add_penyewa.php" method="POST">
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama</label>
-                            <input type="text" class="form-control" id="nama" name="nama" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="no_hp" class="form-label">Nomor HP</label>
-                            <input type="text" class="form-control" id="no_hp" name="no_hp" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="membership" class="form-label">Membership</label>
-                            <select class="form-select" id="membership" name="membership" required>
-                                <option value="0">Tidak</option>
-                                <option value="1">Ya</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Simpan</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     <!-- Modal untuk menambah fasilitas ekstra -->
     <div class="modal fade" id="addFasilitasModal" tabindex="-1" aria-labelledby="addFasilitasModalLabel" aria-hidden="true">
