@@ -116,47 +116,6 @@
         </div>
       </section><!-- End Gallery Section -->
       
-    <!-- ======= About Section ======= -->
-      <section id="about" class="about">
-        <div class="container" data-aos="fade-up">
-
-          <div class="section-header">
-            <h2>About Us</h2>
-            <p>Learn More <span>About Us</span></p>
-          </div>
-
-          <div class="row gy-4">
-            <div class="col-lg-7 position-relative about-img" 
-                style="background-image: url(assets/img/about.jpg); background-size: contain; background-repeat: no-repeat; height: 750px;" 
-                data-aos="fade-up" data-aos-delay="150">
-              <div class="call-us position-absolute">
-                <h4>Call Center</h4>
-                <p>+(022) 20135755</p>
-              </div>
-            </div>
-            <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
-              <div class="content ps-0 ps-lg-5">
-                <p class="fst-italic">
-                  Abadi Sport Center & Restaurant, sebuah destinasi yang menawarkan pengalaman berolahraga yang menyenangkan dan menikmati makanan yang enak, terletak di Jl. Dr. Setiabudi, Setiabudi, Bandung. 
-                </p>
-                <ul>
-                  <li><i class="bi bi-check2-all"></i> Lapangan Tenis/Futsal/Basket & Kolam Renang.</li>
-                  <li><i class="bi bi-check2-all"></i> Restaurant.</li>
-                </ul>
-                <p>
-                Tempat ini sangat cocok untuk mereka yang ingin berolahraga dan bersantap di sampingnya. Fasilitas lapangan yang luas dan modern, serta pelayanan yang ramah, membuat Abadi Sport Center & Restaurant menjadi pilihan yang tepat untuk berbagai keperluan. Selain itu, restoran ini juga menawarkan berbagai pilihan makanan yang lezat dan minuman yang segar, sehingga pengunjung dapat menikmati waktu yang menyenangkan dengan keluarga dan teman. Dengan lokasi yang strategis dan fasilitas yang lengkap, Abadi Sport Center & Restaurant adalah tempat yang tepat untuk berolahraga dan bersantap di Bandung.
-                </p>
-
-                <div class="position-relative mt-4">
-                  <img src="assets/img/about-2.jpeg" class="img-fluid" style="width: 100%; max-width: 1200px; height: auto;" alt="">
-                  <a href="https://www.youtube.com/watch?v=jLlwYFd-K3I" class="glightbox play-btn"></a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section><!-- End About Section -->
-
     <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us section-bg">
       <div class="container" data-aos="fade-up">
@@ -165,41 +124,56 @@
 
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="why-box">
-              <h3>Why Choose Yummy?</h3>
+              <h3>Why Choose Abadeez?</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
+                Pesan lapangan, reservasi ruang, atau amankan fasilitas olahraga apa pun di Abadi Sport Center dengan Abadeez, mitra pemesanan olahraga Anda yang terpercaya.
               </p>
               <div class="text-center">
-                <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+                <a href="#about" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
               </div>
             </div>
           </div><!-- End Why Box -->
 
           <div class="col-lg-8 d-flex align-items-center">
-            <div class="row gy-4">
+            <div class="row gy-4" style="display: flex; flex-wrap: nowrap; overflow-x: auto;">
 
-              <div class="col-xl-4" data-aos="fade-up" data-aos-delay="200">
+              <div class="col-xl-4" data-aos="fade-up" data-aos-delay="200" style="flex: 0 0 auto;">
                 <div class="icon-box d-flex flex-column justify-content-center align-items-center">
-                  <i class="bi bi-clipboard-data"></i>
-                  <h4>Corporis voluptates officia eiusmod</h4>
-                  <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                  <i class="bi bi-trophy"></i>
+                  <h4>Fasilitas Lapangan</h4>
+                  <p>Tempat ini memiliki fasilitas lapangan yang luas dan modern, sehingga Anda dapat berolahraga dengan nyaman dan efektif.</p>
                 </div>
               </div><!-- End Icon Box -->
 
-              <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
+              <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300" style="flex: 0 0 auto;">
                 <div class="icon-box d-flex flex-column justify-content-center align-items-center">
-                  <i class="bi bi-gem"></i>
-                  <h4>Ullamco laboris ladore pan</h4>
-                  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                  <i class="bi bi-geo-alt"></i>
+                  <h4>Lokasi Strategis</h4>
+                  <p>Abadi Sport Center terletak di Jl. Dr. Setiabudi, Setiabudi, Bandung, yang membuatnya mudah diakses menggunakan transportasi umum. Stasiun terdekat adalah Kantor Pos Setiabudi, yang hanya berjarak 381 meter dan dapat ditempuh dalam waktu 6 menit berjalan.</p>
                 </div>
               </div><!-- End Icon Box -->
 
-              <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
+              <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400" style="flex: 0 0 auto;">
                 <div class="icon-box d-flex flex-column justify-content-center align-items-center">
-                  <i class="bi bi-inboxes"></i>
-                  <h4>Labore consequatur incidid dolore</h4>
-                  <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                  <i class="bi bi-people"></i>
+                  <h4>Pelayanan Ramah</h4>
+                  <p>Abadi Sport Center dikenal dengan pelayanan yang ramah dan profesional, sehingga Anda dapat merasa nyaman dan dihargai selama berada di tempat ini.</p>
+                </div>
+              </div><!-- End Icon Box -->
+
+              <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400" style="flex: 0 0 auto;">
+                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                  <i class="bi bi-egg-fried"></i>
+                  <h4>Variasi Makanan</h4>
+                  <p>Abadi Sport Center menawarkan berbagai pilihan makanan yang lezat, termasuk bakmie, jajanan, dan aneka nasi. Hal ini membuat Anda dapat menemukan menu yang sesuai dengan selera Anda.</p>
+                </div>
+              </div><!-- End Icon Box -->
+
+              <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400" style="flex: 0 0 auto;">
+                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                  <i class="bi bi-tags"></i>
+                  <h4>Promo dan Fitur Eksklusif</h4>
+                  <p>Dengan menggunakan GoFood, Anda dapat menikmati berbagai promo dan fitur eksklusif, seperti pilihan makanan yang lebih luas dan harga yang lebih terjangkau.</p>
                 </div>
               </div><!-- End Icon Box -->
 
@@ -210,6 +184,47 @@
 
       </div>
     </section><!-- End Why Us Section -->
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>About Us</h2>
+          <p>Learn More <span>About Us</span></p>
+        </div>
+
+        <div class="row gy-4">
+          <div class="col-lg-7 position-relative about-img" 
+              style="background-image: url(assets/img/about.jpg); background-size: contain; background-repeat: no-repeat; height: 750px;" 
+              data-aos="fade-up" data-aos-delay="150">
+            <div class="call-us position-absolute">
+              <h4>Call Center</h4>
+              <p>+(022) 20135755</p>
+            </div>
+          </div>
+          <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
+            <div class="content ps-0 ps-lg-5">
+              <p class="fst-italic">
+                Abadi Sport Center & Restaurant, sebuah destinasi yang menawarkan pengalaman berolahraga yang menyenangkan dan menikmati makanan yang enak, terletak di Jl. Dr. Setiabudi, Setiabudi, Bandung. 
+              </p>
+              <ul>
+                <li><i class="bi bi-check2-all"></i> Lapangan Tenis/Futsal/Basket & Kolam Renang.</li>
+                <li><i class="bi bi-check2-all"></i> Restaurant.</li>
+              </ul>
+              <p>
+              Tempat ini sangat cocok untuk mereka yang ingin berolahraga dan bersantap di sampingnya. Fasilitas lapangan yang luas dan modern, serta pelayanan yang ramah, membuat Abadi Sport Center & Restaurant menjadi pilihan yang tepat untuk berbagai keperluan. Selain itu, restoran ini juga menawarkan berbagai pilihan makanan yang lezat dan minuman yang segar, sehingga pengunjung dapat menikmati waktu yang menyenangkan dengan keluarga dan teman. Dengan lokasi yang strategis dan fasilitas yang lengkap, Abadi Sport Center & Restaurant adalah tempat yang tepat untuk berolahraga dan bersantap di Bandung.
+              </p>
+
+              <div class="position-relative mt-4">
+                <img src="assets/img/about-2.jpeg" class="img-fluid" style="width: 100%; max-width: 1200px; height: auto;" alt="">
+                <a href="https://www.youtube.com/watch?v=jLlwYFd-K3I" class="glightbox play-btn"></a>
+             </div>
+          </div>
+        </div>
+        
+        </div>
+    </section><!-- End About Section -->
 
     <!-- ======= Menu Section ======= -->
     <section id="menu" class="menu">
