@@ -115,8 +115,49 @@
 
         </div>
       </section><!-- End Gallery Section -->
-      
-    <!-- ======= Why Us Section ======= -->
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>About Us</h2>
+          <p>Learn More <span>About Us</span></p>
+        </div>
+
+        <div class="row gy-4">
+          <div class="col-lg-7 position-relative about-img" 
+              style="background-image: url(assets/img/about.jpg); background-size: contain; background-repeat: no-repeat; height: 750px;" 
+              data-aos="fade-up" data-aos-delay="150">
+            <div class="call-us position-absolute">
+              <h4>Call Center</h4>
+              <p>+(022) 20135755</p>
+            </div>
+          </div>
+          <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
+            <div class="content ps-0 ps-lg-5">
+              <p class="fst-italic">
+                Abadi Sport Center & Restaurant, sebuah destinasi yang menawarkan pengalaman berolahraga yang menyenangkan dan menikmati makanan yang enak, terletak di Jl. Dr. Setiabudi, Setiabudi, Bandung. 
+              </p>
+              <ul>
+                <li><i class="bi bi-check2-all"></i> Lapangan Tenis/Futsal/Basket & Kolam Renang.</li>
+                <li><i class="bi bi-check2-all"></i> Restaurant.</li>
+              </ul>
+              <p>
+              Tempat ini sangat cocok untuk mereka yang ingin berolahraga dan bersantap di sampingnya. Fasilitas lapangan yang luas dan modern, serta pelayanan yang ramah, membuat Abadi Sport Center & Restaurant menjadi pilihan yang tepat untuk berbagai keperluan. Selain itu, restoran ini juga menawarkan berbagai pilihan makanan yang lezat dan minuman yang segar, sehingga pengunjung dapat menikmati waktu yang menyenangkan dengan keluarga dan teman. Dengan lokasi yang strategis dan fasilitas yang lengkap, Abadi Sport Center & Restaurant adalah tempat yang tepat untuk berolahraga dan bersantap di Bandung.
+              </p>
+
+              <div class="position-relative mt-4">
+                <img src="assets/img/about-2.jpeg" class="img-fluid" style="width: 100%; max-width: 1200px; height: auto;" alt="">
+                <a href="https://www.youtube.com/watch?v=jLlwYFd-K3I" class="glightbox play-btn"></a>
+             </div>
+          </div>
+        </div>
+        
+        </div>
+    </section><!-- End About Section -->
+
+      <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us section-bg">
       <div class="container" data-aos="fade-up">
 
@@ -185,54 +226,13 @@
       </div>
     </section><!-- End Why Us Section -->
 
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-          <h2>About Us</h2>
-          <p>Learn More <span>About Us</span></p>
-        </div>
-
-        <div class="row gy-4">
-          <div class="col-lg-7 position-relative about-img" 
-              style="background-image: url(assets/img/about.jpg); background-size: contain; background-repeat: no-repeat; height: 750px;" 
-              data-aos="fade-up" data-aos-delay="150">
-            <div class="call-us position-absolute">
-              <h4>Call Center</h4>
-              <p>+(022) 20135755</p>
-            </div>
-          </div>
-          <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
-            <div class="content ps-0 ps-lg-5">
-              <p class="fst-italic">
-                Abadi Sport Center & Restaurant, sebuah destinasi yang menawarkan pengalaman berolahraga yang menyenangkan dan menikmati makanan yang enak, terletak di Jl. Dr. Setiabudi, Setiabudi, Bandung. 
-              </p>
-              <ul>
-                <li><i class="bi bi-check2-all"></i> Lapangan Tenis/Futsal/Basket & Kolam Renang.</li>
-                <li><i class="bi bi-check2-all"></i> Restaurant.</li>
-              </ul>
-              <p>
-              Tempat ini sangat cocok untuk mereka yang ingin berolahraga dan bersantap di sampingnya. Fasilitas lapangan yang luas dan modern, serta pelayanan yang ramah, membuat Abadi Sport Center & Restaurant menjadi pilihan yang tepat untuk berbagai keperluan. Selain itu, restoran ini juga menawarkan berbagai pilihan makanan yang lezat dan minuman yang segar, sehingga pengunjung dapat menikmati waktu yang menyenangkan dengan keluarga dan teman. Dengan lokasi yang strategis dan fasilitas yang lengkap, Abadi Sport Center & Restaurant adalah tempat yang tepat untuk berolahraga dan bersantap di Bandung.
-              </p>
-
-              <div class="position-relative mt-4">
-                <img src="assets/img/about-2.jpeg" class="img-fluid" style="width: 100%; max-width: 1200px; height: auto;" alt="">
-                <a href="https://www.youtube.com/watch?v=jLlwYFd-K3I" class="glightbox play-btn"></a>
-             </div>
-          </div>
-        </div>
-        
-        </div>
-    </section><!-- End About Section -->
-
     <!-- ======= Menu Section ======= -->
     <section id="menu" class="menu">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Our Menu</h2>
-          <p>Check Our <span>Yummy Menu</span></p>
+          <h2>ABADI SPORT CENTER</h2>
+          <p>Check Our <span>Field</span></p>
         </div>
 
         <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
@@ -240,8 +240,8 @@
           <div class="tab-pane fade active show" id="menu-starters">
 
             <div class="tab-header text-center">
-              <p>Menu</p>
-              <h3>Starters</h3>
+              <p>List</p>
+              <h3>Lapangan</h3>
             </div>
 
             <div class="row gy-5">
