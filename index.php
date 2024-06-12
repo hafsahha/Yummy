@@ -236,7 +236,6 @@
         </div>
 
         <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
-
           <div class="tab-pane fade active show" id="menu-starters">
 
             <div class="tab-header text-center">
@@ -245,35 +244,26 @@
             </div>
 
             <div class="row gy-5">
-            <?php
-                foreach($listLapangan as $lapangan){
-              ?>
+              <?php foreach($listLapangan as $lapangan): ?>
                 <div class="col-lg-4 menu-item">
-                  <a href="assets/img/lapangan/<?= $lapangan['gambar'] ?>" class="glightbox"><img src="assets/img/lapangan/<?= $lapangan['gambar'] ?>" class="menu-img img-fluid" alt="gambar"></a>
-                  <h4><?= $lapangan['jenis_lapangan'] ?></h4>
-                  <p class="price">
-                    Rp<?= number_format($lapangan['harga']) ?>
-                  </p>
-                  <div class="text-center">
-                    <a class="btn btn-primary mt-auto" href="transaksi.ph p?id=<?=$lapangan['ID'] ?>">Sewa</a>
-                    <a
-                      class="btn btn-info mt-auto text-white"
-                      href="{{ route('detail') }}"
-                      >Detail</a>
+                  <div class="card h-100 shadow-sm">
+                    <a href="assets/img/lapangan/<?= $lapangan['gambar'] ?>" class="glightbox">
+                      <img src="assets/img/lapangan/<?= $lapangan['gambar'] ?>" class="menu-img img-fluid card-img-top" alt="gambar">
+                    </a>
+                    <div class="card-body d-flex flex-column">
+                      <h4 class="card-title"><?= $lapangan['jenis_lapangan'] ?></h4>
+                      <p class="price text-primary">Rp<?= number_format($lapangan['harga']) ?></p>
+                      <div class="mt-auto text-center">
+                        <a class="btn btn-primary mb-2" href="transaksi.php?id=<?= $lapangan['ID'] ?>">Sewa</a>
+                        <a class="btn btn-info text-white" href="{{ route('detail') }}">Detail</a>
+                      </div>
+                    </div>
                   </div>
-                <div class="card-footer border-top-0 bg-transparent">
-              </div>
                 </div>
-
-                <?php
-                }
-                ?>
-
+              <?php endforeach; ?>
             </div>
           </div>
-
         </div>
-
       </div>
     </section>
 
