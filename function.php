@@ -193,8 +193,8 @@
     
         $query = "SELECT transaksi_fasilitas.*, penyewa.nama AS nama_penyewa, fasilitas.nama_fasilitas AS nama_fasilitas
                   FROM transaksi_fasilitas 
-                  INNER JOIN transaksi ON transaksi_fasilitas.id_transaksi = transaksi.id
-                  INNER JOIN penyewa ON transaksi.id_penyewa = penyewa.ID
+                  INNER JOIN transaksi ON transaksi_fasilitas.ID_transaksi = transaksi.ID
+                  INNER JOIN penyewa ON transaksi.ID_penyewa = penyewa.ID
                   INNER JOIN fasilitas  ON transaksi_fasilitas.ID_fasilitas= fasilitas.ID";
         $result = mysqli_query($conn, $query);
     
