@@ -29,6 +29,15 @@
         return $result;
     }
 
+    function findTransaksi(){
+        global $conn;
+
+        $query = "SELECT ID FROM transaksi ORDER BY ID DESC LIMIT 1";
+        $result = mysqli_query($conn, $query);
+        
+        return mysqli_fetch_assoc($result);
+    }
+
     function addPenyewa($data){
         global $conn;
     
@@ -64,13 +73,13 @@
         return $result;
     }    
 
-    function findPenyewa($data){
+    function findPenyewa(){
         global $conn;
     
-        $query = "SELECT ID FROM penyewa WHERE nama = '$data' LIMIT 1";
+        $query = "SELECT ID FROM penyewa ORDER BY ID DESC LIMIT 1";
         $result = mysqli_query($conn, $query);
     
-        return $result;
+        return mysqli_fetch_assoc($result);
     }    
     
     function addLapangan($data){
@@ -117,15 +126,6 @@
         $result = mysqli_query($conn, $query);
     
         return mysqli_fetch_assoc($result);
-    }    
-
-    function readActiveLapangan(){
-        global $conn;
-    
-        $query = "SELECT * FROM lapangan WHERE status = 1";
-        $result = mysqli_query($conn, $query);
-    
-        return $result;
     }
     
     function addFasilitas($data){

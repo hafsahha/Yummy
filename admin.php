@@ -346,7 +346,7 @@ if (isset($_GET['id'])) {
                         <tr>
                             <td><?= $nomor++; ?></td>
                             <td><?= $fasilitas['nama_fasilitas'] ?></td>
-                            <td><?= $fasilitas['harga'] ?></td>
+                            <td>Rp<?= number_format($fasilitas['harga']) ?></td>
                             <td>
                                 <!-- Tombol untuk mengedit Fasilitas -->
                                 <button type="button" class="btn btn-warning editFasilitasBtn" data-bs-toggle="modal" data-bs-target="#editFasilitasModal<?= $fasilitas['ID'] ?>" data-id="<?= $fasilitas['ID'] ?>"><i class="bi bi-pencil-square"></i> Edit</button>

@@ -122,7 +122,7 @@
                                 <h5 class="fw-bolder text-primary">Harga</h5>
                                 <div class="rent-price mb-3">
                                 <span style="font-size: 1rem" class="text-primary"
-                                    ><strong><?= $lapanganDetail['harga'] ?></strong>/jam</span>
+                                    ><strong>Rp<?= number_format($lapanganDetail['harga']) ?></strong>/jam</span>
                                 </div>
                             </div>
                             <ul class="list-unstyled list-style-group">

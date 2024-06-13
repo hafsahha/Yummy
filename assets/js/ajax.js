@@ -5,8 +5,8 @@ $(document).ready(function () {
         var end = new Date('1970-01-01T' + endTime + 'Z');
 
         if (start > end) {
-            // Atur nilai waktu selesai sama dengan waktu mulai
-            end = $(this).val();
+            // Set the end time equal to the start time
+            end = start;
         }
 
         // Calculate the difference in milliseconds
@@ -29,11 +29,13 @@ $(document).ready(function () {
     $('#total').hide();
     $('#extra').hide();
     $('#duration').hide();
+    $('#discount').hide();
     $('#pricetotal').hide();
 
     var fieldprice = 0;
     var extras = 0;
     var duration = 0;
+    var total = 0;
     
     $('#membership').change(function() {
         $('#member').slideToggle();
@@ -55,11 +57,12 @@ $(document).ready(function () {
         $('#fasilitaz').slideToggle();
         
         if ($('#fasilitas').is(':checked')) {
-            $('#fasilitaz').prop('required', true);
+            $('#ID_fasilitas').prop('required', true);
         } else {
-            $('#fasilitaz').prop('required', false);
-            $('#fasilitaz').val('');
+            $('#ID_fasilitas').prop('required', false);
+            $('#ID_fasilitas').val('');
             $('#extra').slideUp();
+            extras = 0;
         }
     });
     
@@ -77,24 +80,46 @@ $(document).ready(function () {
             datatype: 'json',
             data: {ID: ID},
             success: function(response) {
-                fieldprice = response[0].harga;
+                fieldprice = parseInt(response[0].harga);
                 $('#form_image').css('background-image', 'url(assets/img/lapangan/' + response[0].gambar + ')');
                 $('#field_price b').html('Rp' + response[0].harga + '/jam');
+
+                if (duration <= 0) {
+                    total = 0;
+                } else if (!$('#member select').val()) {
+                    total = (fieldprice + extras) * duration;
+                } else {
+                    total = (fieldprice + extras - 20000) * duration;
+                }
+                if (fieldprice && duration) {
+                    $('#pricetotal b').html('Rp' + total);
+                }
             }
         });
     });
     
     $('#fasilitaz').change(function() {
         $('#extra').slideDown();
-        var ID = $('#fasilitas_ekstra').val();
+        var ID = $('#ID_fasilitas').val();
         $.ajax({
             url: 'getFasilitas.php?id=' + ID,
             type: 'GET',
             datatype: 'json',
             data: {ID: ID},
             success: function(response) {
-                extras += response[0].harga;
+                extras = parseInt(response[0].harga);
                 $('#field_extra b').html('Rp' + extras + '/jam');
+                
+                if (duration <= 0) {
+                    total = 0;
+                } else if (!$('#member select').val()) {
+                    total = (fieldprice + extras) * duration;
+                } else {
+                    total = (fieldprice + extras - 20000) * duration;
+                }
+                if (fieldprice && duration) {
+                    $('#pricetotal b').html('Rp' + total);
+                }
             }
         });
     });
@@ -106,36 +131,27 @@ $(document).ready(function () {
         if (waktuMulai && waktuSelesai) {
             $('#duration').slideDown();
             duration = handleTimeChange();
-            $('#field_duration b').html(duration + ' jam');
+            if (duration) {
+                $('#field_duration b').html(duration + ' jam');
+            } else {
+                $('#field_duration b').html('invalid');
+                $('#pricetotal').slideUp();
+
+            }
         }
     });
     
-    $('#ID_lapangan, #fasilitaz, #waktu_mulai, #waktu_selesai').change( function () {
-        var total = (fieldprice + extras) * duration;
+    $('#membership, #fasilitas, #member select, #ID_lapangan, #fasilitaz, #waktu_mulai, #waktu_selesai').change( function () {
+        if (!$('#member select').val()) {
+            total = (fieldprice + extras) * duration;
+        } else {
+            total = (fieldprice + extras - 20000) * duration;
+        }
 
         if (fieldprice && duration) {
             $('#pricetotal').slideDown();
             $('#pricetotal b').html('Rp' + total);
         }
-    });
-
-    $('#add_fasilitas').click(function() {
-        var fasilitasSelect = `
-            <div class="d-flex fasilitas-ekstra-container">
-                <select class="form-select fasilitas-ekstra" aria-label="Category" name="fasilitas_ekstra">
-                    <option value="" selected disabled hidden>Pilih</option>
-                    <?php
-                    foreach($fasilitas as $fasilitas){
-                        echo '<option value="'.$fasilitas['ID'].'">'.$fasilitas['nama_fasilitas'].'</option>';
-                    }
-                    ?>
-                </select>
-                <button type="button" class="btn btn-danger btn-del-fasil remove-fasilitas">-</button>
-            </div>
-        `;
-        var $fasilitasContainer = $(fasilitasSelect).hide();
-        $('#fasilitas_container').append($fasilitasContainer);
-        $fasilitasContainer.slideDown();
     });
 
     $(document).on('click', '.remove-fasilitas', function() {

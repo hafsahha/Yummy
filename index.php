@@ -62,7 +62,7 @@
 				</ul>
 			</nav><!-- .navbar -->
 
-			<a class="btn-book-a-table" href="transaction.php">Reservasi Lapangan</a>
+			<a class="btn-book-a-table" href="transaksi.php">Reservasi Lapangan</a>
 
 		</div>
 	</header><!-- End Header -->
@@ -75,7 +75,7 @@
 					<h2 data-aos="fade-up">Reserve Your Game,<br>Elevate Your Play</h2>
 					<p data-aos="fade-up" data-aos-delay="100">Reservasi lapangan di Abadi Sport Center kini lebih mudah dengan Abadeez, memberikan Anda akses tanpa hambatan ke semua fasilitas olahraga.</p>
 					<div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-						<a href="transaction.php" class="btn-book-a-table">Reservasi Lapangan</a>
+						<a href="transaksi.php" class="btn-book-a-table">Reservasi Lapangan</a>
 					</div>
 				</div>
 				<div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">

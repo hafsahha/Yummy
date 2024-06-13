@@ -4,6 +4,11 @@
     $lapangan = readlapangan();
     $fasilitas = readFasilitas();
 
+    $fasil = '';
+    foreach ($fasilitas as $f) {
+        $fasil .= '<option value="'.$f['ID'].'">'.$f['nama_fasilitas'].'</option>';
+    }
+
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
     }
@@ -13,14 +18,14 @@
             $isAddSucceed = addTransaksi($_POST);
         } else {
             $_POST['membership'] = 0;
-            if (!findPenyewa($_POST['nama'])) {
-                $isAddSucceed_1 = addPenyewa($_POST);
-            } else $isAddSucceed_1 = 1;
-            $temp = findPenyewa($_POST['nama']);
-            foreach ($temp as $t) {
-                $_POST['ID_penyewa'] = $t['ID'];
-            }
+            if (!findPenyewa()) addPenyewa($_POST);
+            $isAddSucceed_1 = 1;
+            $_POST['ID_penyewa'] = findPenyewa();
             $isAddSucceed_2 = addTransaksi($_POST);
+        }
+        if (isset($_POST['ID_fasilitas'])) {
+            $_POST['ID_transaksi'] = findTransaksi();
+            addTransaksiFasilitas($_POST);
         }
 
         if (($isAddSucceed || ($isAddSucceed_1 && $isAddSucceed_2))) {
@@ -142,8 +147,8 @@
                             </div>
                             <div id="member">
                                 <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Penyewa</label>
-                                    <select class="form-select" aria-label="Category" id="nama" name="nama">
+                                    <label for="ID_penyewa" class="form-label">Nama Penyewa</label>
+                                    <select class="form-select" aria-label="Category" id="ID_penyewa" name="ID_penyewa">
                                         <option value="" selected disabled hidden>Pilih</option>
                                         <?php
                                         foreach($penyewa as $penyewa){
@@ -207,16 +212,12 @@
                                     <label for="fasilitas">Tambah Fasilitas Ekstra</label>
                                 </div>
                                 <div id="fasilitaz" class="mb-3">
-                                    <select class="form-select" aria-label="Category" id="fasilitas_ekstra" name="fasilitas_ekstra[0]">
+                                    <select class="form-select" aria-label="Category" id="ID_fasilitas" name="ID_fasilitas">
                                         <option value="" selected disabled hidden>Pilih</option>
-                                        <?php
-                                        foreach($fasilitas as $fasilitas){
-                                            echo '<option value="'.$fasilitas['ID'].'">'.$fasilitas['nama_fasilitas'].'</option>';
-                                        }
-                                        ?>
+                                        <?php echo $fasil ?>
                                     </select>
                                     <div id="fasilitas_container"></div>
-                                    <div class="mb-3">
+                                    <div class="d-flex mb-3">
                                         <button type="button" id="add_fasilitas" class="btn btn-primary btn-add-fasil">+</button>
                                     </div>
                                 </div>
@@ -337,6 +338,24 @@
     <script src="assets/js/ajax.js"></script>
 
 </body>
+
+<script>
+$('#add_fasilitas').click(function() {
+    var fasilitasSelect = `
+        <div class="d-flex fasilitas-ekstra-container">
+            <select class="form-select fasilitas-ekstra" aria-label="Category" name="ID_fasilitas">
+                <option value="" selected disabled hidden>Pilih</option>
+                <?php echo $fasil ?>
+            </select>
+            <button type="button" class="btn btn-danger btn-del-fasil remove-fasilitas">-</button>
+        </div>
+    `;
+    var $fasilitasContainer = $(fasilitasSelect).hide();
+    $('#fasilitas_container').append($fasilitasContainer);
+    $fasilitasContainer.slideDown();
+});
+</script>
+
 <?php if (isset($_GET['id'])): ?>
 <script>
     $(document).ready(function() {
