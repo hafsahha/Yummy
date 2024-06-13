@@ -14,6 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nama_gambar = $_FILES['gambar']['name'];
     $ukuran_gambar = $_FILES['gambar']['size'];
     $tmp_gambar = $_FILES['gambar']['tmp_name'];
+    $error_gambar = $_FILES['gambar']['error'];
 
     // Tentukan lokasi penyimpanan file gambar
     $lokasi_gambar = 'assets/img/lapangan/' . $nama_gambar;
@@ -21,16 +22,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Lakukan update data lapangan ke database
     $sql = "UPDATE lapangan SET jenis_lapangan='$jenis_lapangan', jenis_olahraga='$jenis_olahraga', fasilitas_umum='$fasilitas_umum', harga='$harga', status='$status', ID_PJ='$id_pj', gambar='$nama_gambar' WHERE ID='$id'";
 
-    if (mysqli_query($conn, $sql)) {
-        // Pindahkan file gambar ke lokasi penyimpanan
-        move_uploaded_file($tmp_gambar, $lokasi_gambar);
-
-        // Redirect ke halaman utama dengan pesan sukses
-        header("location: admin.php?pesan=sukses");
-        exit;
+    if ($error_gambar === UPLOAD_ERR_OK) {
+        if (mysqli_query($conn, $sql)) {
+            // Pindahkan file gambar ke lokasi penyimpanan
+            if (move_uploaded_file($tmp_gambar, $lokasi_gambar)) {
+                // Redirect ke halaman utama dengan pesan sukses
+                header("location: admin.php?pesan=sukses");
+                exit;
+            } else {
+                // Redirect ke halaman utama dengan pesan gagal
+                header("location: admin.php?pesan=gagal_upload");
+                exit;
+            }
+        } else {
+            // Redirect ke halaman utama dengan pesan gagal
+            header("location: admin.php?pesan=gagal_query");
+            exit;
+        }
     } else {
         // Redirect ke halaman utama dengan pesan gagal
-        header("location: admin.php?pesan=gagal");
+        header("location: admin.php?pesan=gagal_upload_error");
         exit;
     }
 } else {
